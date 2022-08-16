@@ -19,7 +19,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
 
-                sh "mvn sonar:sonar -Dsonar.host.url=http://80.158.7.52:30002"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://80.158.7.52:30002 -Dsonar.login=credential('Token-für-Zugriff-auf-SonarQube')"
             }
         }
     }
