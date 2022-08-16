@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
 
-                git 'https://github.com/ISTQB-Tester-Training/StaticCodeanalysis-Showcase-Template.git'
+                git 'https://github.com/ISTQB-Tester-Training/ALATT-SCA-Check.git'
 
                 sh "mvn compile"
             }
@@ -19,7 +19,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
 
-                sh "mvn sonar:sonar -Dsonar.host.url=http://ctp-tester-training.tk:30002/"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://80.158.7.52:30002"
             }
         }
     }
