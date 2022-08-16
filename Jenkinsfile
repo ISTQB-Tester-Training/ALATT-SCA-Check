@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+            SQ_TOKEN = credentials('Token-für-Zugriff-auf-SonarQube')
+        }
     stages {
         stage('Build') {
             steps {
@@ -19,7 +22,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
 
-                sh "mvn sonar:sonar -Dsonar.host.url=http://80.158.7.52:30002 -Dsonar.login=credentials('Token-für-Zugriff-auf-SonarQube')"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://80.158.7.52:30002 -Dsonar.login=$SQ_TOKEN"
             }
         }
     }
